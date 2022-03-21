@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react_expo_example",
-    "slug": "react_expo_example",
+    "name": "react_expo_counter",
+    "slug": "react_expo_counter",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,7 +17,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     },
     "android": {
       "adaptiveIcon": {
@@ -27,6 +27,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": ""
   }
 }

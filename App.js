@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect } from "react";
+import Navigation from "./app/Navigation/Navigation";
+import { firebaseApp } from "./app/common/firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { LogBox } from "react-native";
+
+LogBox.ignoreLogs(["AsyncStorage has been extracted"]);
+LogBox.ignoreAllLogs();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const auth = getAuth();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        console.log("AUTENTICADO");
+        // ...
+      } else {
+        console.log("NO AUTENTICADO");
+      }
+    });
+  }, []);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  return <Navigation />;
+}
