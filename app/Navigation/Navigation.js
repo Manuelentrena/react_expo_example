@@ -13,8 +13,9 @@ const Tab = createBottomTabNavigator();
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader text={"CARGANDO..."} />}>
         <Tab.Navigator
+          optimizationsEnabled={true}
           screenOptions={{
             tabBarStyle: styles.navigator,
             tabBarShowLabel: false,

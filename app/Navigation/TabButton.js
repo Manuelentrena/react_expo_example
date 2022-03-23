@@ -4,7 +4,7 @@ import { Icon } from "react-native-elements";
 import { TouchableOpacity } from "react-native";
 import * as Animatable from "react-native-animatable";
 /* GLOBAL */
-import { iconType, iconColor, iconName } from "../common/global";
+import { iconType, iconColor, iconName } from "../constant/global";
 /* STYLES */
 import { styles } from "./NavigationStyles";
 
