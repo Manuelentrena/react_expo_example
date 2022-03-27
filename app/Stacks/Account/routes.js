@@ -1,10 +1,15 @@
 /* SCREENS */
-import Account from "../../Screens/Account";
+import Account from "../../Screens/Acount/Acount";
+import { stylesStack } from "../StacksStyles";
 
 export const screens = [
   {
     name: "Perfil usuario",
     Component: Account,
-    title: "PERFIL USUARIO",
+    options: {
+      title: "PERFIL USUARIO",
+      headerTitleStyle: stylesStack.headerTitleStyle,
+      headerStyle: stylesStack.headerStyle,
+    },
   },
 ];

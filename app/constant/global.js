@@ -1,5 +1,4 @@
-export const iconType = "font-awesome"; // https://fontawesome.com/v5/cheatsheet
-
+// https://icons.expo.fyi/
 export const iconName = {
   INICIO: "home",
   BUSCADOR: "search",

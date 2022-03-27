@@ -1,9 +1,10 @@
 import { View, Text } from "react-native";
+import { globalStyles } from "../../styles/global";
 
 export default function Map() {
   return (
     <View>
-      <Text>Map</Text>
+      <Text style={globalStyles.text}>Map</Text>
     </View>
   );
 }

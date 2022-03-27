@@ -1,16 +1,25 @@
 /* SCREENS */
-import Home from "../../Screens/Home";
-import Store from "../../Screens/Store";
+import Home from "../../Screens/Home/Home";
+import Store from "../../Screens/Store/Store";
+import { stylesStack } from "../StacksStyles";
 
 export const screens = [
   {
     name: "Home",
     Component: Home,
-    title: "INICIO",
+    options: {
+      title: "INICIO",
+      headerTitleStyle: stylesStack.headerTitleStyle,
+      headerStyle: stylesStack.headerStyle,
+    },
   },
   {
     name: "Store",
     Component: Store,
-    title: "TIENDA",
+    options: {
+      title: "TIENDA",
+      headerTitleStyle: stylesStack.headerTitleStyle,
+      headerStyle: stylesStack.headerStyle,
+    },
   },
 ];

@@ -6,12 +6,12 @@ const Stack = createNativeStackNavigator();
 export default function HomeStack() {
   return (
     <Stack.Navigator>
-      {screens.map(({ name, Component, title }) => (
+      {screens.map(({ name, Component, options }) => (
         <Stack.Screen
           key={name}
           name={name}
           component={Component}
-          options={{ title }}
+          options={options}
         />
       ))}
     </Stack.Navigator>

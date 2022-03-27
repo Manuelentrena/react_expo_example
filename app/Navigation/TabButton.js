@@ -1,10 +1,10 @@
 import { useRef, useEffect } from "react";
 /* ELEMENTS */
-import { Icon } from "react-native-elements";
-import { TouchableOpacity } from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { TouchableOpacity, Text } from "react-native";
 import * as Animatable from "react-native-animatable";
 /* GLOBAL */
-import { iconType, iconColor, iconName } from "../constant/global";
+import { iconColor, iconName } from "../constant/global";
 /* STYLES */
 import { styles } from "./NavigationStyles";
 
@@ -34,12 +34,13 @@ export default function TabButton(props) {
       activeOpacity={1}
     >
       <Animatable.View ref={viewRef} duration={750} style={styles.container}>
-        <Icon
+        <FontAwesome5
           name={iconName[title]}
-          type={iconType}
+          size={18}
           color={focused ? iconColor["ON"] : iconColor["OFF"]}
         />
       </Animatable.View>
+      <Text>{title.toLowerCase()}</Text>
     </TouchableOpacity>
   );
 }

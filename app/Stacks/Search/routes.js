@@ -1,22 +1,35 @@
 /* SCREENS */
-import Search from "../../Screens/Search";
-import Map from "../../Screens/Map";
-import Store from "../../Screens/Store";
+import Search from "../../Screens/Search/Search";
+import Map from "../../Screens/Map/Map";
+import Store from "../../Screens/Store/Store";
+import { stylesStack } from "../StacksStyles";
 
 export const screens = [
   {
     name: "Search",
     Component: Search,
-    title: "BUSCADOR",
+    options: {
+      title: "BUSCADOR",
+      headerTitleStyle: stylesStack.headerTitleStyle,
+      headerStyle: stylesStack.headerStyle,
+    },
   },
   {
     name: "Map",
     Component: Map,
-    title: "MAPA",
+    options: {
+      title: "MAPA",
+      headerTitleStyle: stylesStack.headerTitleStyle,
+      headerStyle: stylesStack.headerStyle,
+    },
   },
   {
     name: "Store",
     Component: Store,
-    title: "TIENDA",
+    options: {
+      title: "TIENDA",
+      headerTitleStyle: stylesStack.headerTitleStyle,
+      headerStyle: stylesStack.headerStyle,
+    },
   },
 ];

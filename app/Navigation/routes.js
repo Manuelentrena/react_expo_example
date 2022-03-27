@@ -10,8 +10,6 @@ export const routes = [
     name: "StackHome",
     Component: LazyStackHome,
     options: {
-      tabBarLabel: "INICIO",
-      headerShown: false,
       tabBarButton: (props) => <TabButton {...props} title="INICIO" />,
     },
   },
@@ -19,8 +17,6 @@ export const routes = [
     name: "StackSearch",
     Component: LazyStackSearch,
     options: {
-      tabBarLabel: "BUSCADOR",
-      headerShown: false,
       tabBarButton: (props) => <TabButton {...props} title="BUSCADOR" />,
     },
   },
@@ -28,8 +24,6 @@ export const routes = [
     name: "StackAccount",
     Component: LazyStackAccount,
     options: {
-      tabBarLabel: "PERFIL",
-      headerShown: false,
       tabBarButton: (props) => <TabButton {...props} title="PERFIL" />,
     },
   },
