@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, FlatList, Alert, Keyboard } from "react-native";
+import { View, FlatList, Alert, Keyboard } from "react-native";
 import { globalStyles } from "../../styles/global";
 import Item from "./Item";
 import AddItem from "./AddItem";
