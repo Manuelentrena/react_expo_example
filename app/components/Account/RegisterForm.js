@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 /* DEPENDENCIES */
 import { StyleSheet, View, Pressable } from "react-native";
 import { Input, Icon, Button } from "react-native-elements";
-import Toast from "react-native-toast-message";
 /* COMPONENTS */
 import color from "../../styles/color";
+/* import ToastMessage from "../Toast/ToastMessage"; */
+import Toast from "react-native-toast-message";
 /* UTILS */
 import {
   validateEmail,
@@ -49,8 +50,10 @@ export default function RegisterForm() {
   }, [formData]);
 
   const onSubmit = () => {
-    console.log("SUBMIT!");
-    Toast.show({ type: "success", text1: "Hello 👋" });
+    return Toast.show({
+      type: "success",
+      text1: "This is some something 👋",
+    });
   };
 
   const onChange = ({ nativeEvent }, type) => {

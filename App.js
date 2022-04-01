@@ -5,6 +5,8 @@ import { firebaseApp } from "./app/constant/firebase";
 import { LogBox } from "react-native";
 import DrawerMenu from "./app/Drawer/DrawerMenu";
 import "react-native-gesture-handler";
+import Toast from "react-native-toast-message";
+import { toastConfig } from "./app/constant/ToastConfig";
 
 /* IGNORAMOS ALGUNOS WARNINGS */
 LogBox.ignoreLogs([
@@ -24,5 +26,10 @@ export default function App() {
     return null;
   }
 
-  return <Navigation />;
+  return (
+    <>
+      <Navigation />
+      <Toast config={toastConfig} />
+    </>
+  );
 }
