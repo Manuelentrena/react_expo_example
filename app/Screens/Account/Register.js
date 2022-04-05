@@ -1,8 +1,9 @@
-import { View, Text, Image } from "react-native";
-import React from "react";
-import { styles } from "./Register.styles";
+/* DEPENDENCIES */
+import { View, Image } from "react-native";
 import RegisterForm from "../../components/Account/RegisterForm";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+/* STYLES */
+import { styles } from "./RegisterStyles";
 
 export default function Register() {
   return (

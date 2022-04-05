@@ -1,4 +1,4 @@
-import { Image, Text, ScrollView, View } from "react-native";
+import { Text, ScrollView, View } from "react-native";
 import { Button } from "react-native-elements";
 import { styles } from "./UserGuestStyle";
 import React from "react";
@@ -8,15 +8,15 @@ export default function UserGuest() {
   const navigation = useNavigation();
   return (
     <ScrollView centerContent={true} style={styles.scrollview}>
-      <Image
+      {/* <Image
         style={styles.image}
         source={require("../../../assets/avatar.png")}
         resizeMode="contain"
-      ></Image>
-      <Text style={styles.text}>UserGuest</Text>
+      ></Image> */}
+      <Text style={styles.text}>Bienvenido!</Text>
       <View style={styles.viewButton}>
         <Button
-          title="VER TU PERFIL"
+          title="INICIA SESION"
           buttonStyle={styles.button}
           containerStyle={styles.containerButton}
           onPress={() => navigation.navigate("Login")}

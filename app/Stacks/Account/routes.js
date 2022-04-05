@@ -1,12 +1,12 @@
 /* SCREENS */
-import Account from "../../Screens/Acount/Acount";
-import Login from "../../Screens/Acount/Login";
-import Register from "../../Screens/Acount/Register";
+import Account from "../../Screens/Account/Account";
+import Login from "../../Screens/Account/Login";
+import Register from "../../Screens/Account/Register";
 import { stylesStack } from "../StacksStyles";
 
 export const screens = [
   {
-    name: "Perfil usuario",
+    name: "Account",
     Component: Account,
     options: {
       title: "PERFIL USUARIO",

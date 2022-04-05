@@ -13,6 +13,7 @@ LogBox.ignoreLogs([
   "AsyncStorage has been extracted",
   "Warning: Using UNSAFE_componentWillMount in strict mode is not recommended and may indicate bugs in your code.",
   "Warning: Using UNSAFE_componentWillReceiveProps in strict mode is not recommended and may indicate bugs in your code.",
+  "Setting a timer for a long period of time",
 ]);
 LogBox.ignoreAllLogs();
 

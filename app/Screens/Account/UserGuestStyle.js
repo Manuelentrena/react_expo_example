@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import color from "../../styles/color";
 
 export const styles = StyleSheet.create({
   scrollview: {
@@ -20,7 +21,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    backgroundColor: "#008800",
+    backgroundColor: color.primary,
   },
   containerButton: {
     marginTop: 30,

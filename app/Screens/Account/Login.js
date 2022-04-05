@@ -6,6 +6,8 @@ import { styles } from "./LoginStyle";
 import color from "../../styles/color";
 /* NAVIGATION */
 import { useNavigation } from "@react-navigation/native";
+/* COMPONENTS */
+import LoginForm from "../../components/Account/LoginForm";
 
 export default function Login() {
   return (
@@ -16,10 +18,10 @@ export default function Login() {
         resizeMode="contain"
       />
       <View style={styles.loginForm}>
-        <Text>Login</Text>
+        <LoginForm />
         <CreateAccount />
+        <Divider style={styles.divider} color={color.primary} />
       </View>
-      <Divider style={styles.divider} color={color.primary} />
     </ScrollView>
   );
 }
