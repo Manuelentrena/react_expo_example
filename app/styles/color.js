@@ -4,4 +4,5 @@ export default {
   white: "#fff",
   gray: "#9ca5ab",
   backgroundGray: "#f2f2f2",
+  backgroundModal: "rgba(0,0,0,0.5)",
 };

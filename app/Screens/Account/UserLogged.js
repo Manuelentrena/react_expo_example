@@ -1,44 +1,52 @@
-import { useState } from "react";
 /* DEPENDENCIES */
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 import { Button } from "react-native-elements";
-import { getAuth, signOut } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 /* COMPONENTS */
-import Toast from "react-native-toast-message";
 import InfoUser from "./InfoUser";
+import UserLoggedOptions from "./UserLoggedOptions";
 /* STYLES */
 import { styles } from "./UserLoggedStyle";
+/* HOOKS */
+import useFirebaseStorage from "../../Hooks/useFirebaseStorage";
 
-export default function UserLogged() {
-  const [isLoading, setIsLoading] = useState(false);
-  const auth = getAuth();
+export default function UserLogged({ logout, isLoadingLogout }) {
+  const {
+    uploadImage,
+    updateAvatar,
+    isLoadAvatar,
+    currentUser,
+    getUser,
+    updateName,
+    changeEmail,
+  } = useFirebaseStorage();
   const navigation = useNavigation();
 
-  const logout = () => {
-    setIsLoading(true);
-    signOut(auth)
-      .then(() => {
-        navigation.navigate("Account");
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        return Toast.show({
-          type: "error",
-          text1: error.code,
-        });
-      });
+  const handleLogout = async () => {
+    const res = await logout();
+    if (res) navigation.navigate("Account");
   };
 
   return (
     <View style={styles.viewUserInfo}>
-      <InfoUser />
+      <InfoUser
+        uploadImage={uploadImage}
+        updateAvatar={updateAvatar}
+        isLoadAvatar={isLoadAvatar}
+        currentUser={currentUser}
+      />
+      <UserLoggedOptions
+        currentUser={currentUser}
+        getUser={getUser}
+        updateName={updateName}
+        changeEmail={changeEmail}
+      />
       <Button
         title="CERRAR SESION"
-        onPress={logout}
+        onPress={handleLogout}
         buttonStyle={styles.button}
         containerStyle={styles.containerButton}
-        loading={isLoading}
+        loading={isLoadingLogout}
       />
     </View>
   );

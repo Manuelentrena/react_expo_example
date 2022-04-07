@@ -7,9 +7,13 @@ import Loader from "../../components/Loader/Loader";
 import useLogin from "../../Hooks/useLogin";
 
 export default function Account() {
-  const { isLoading, isLogin } = useLogin();
+  const { isLoading, isLogin, logout, isLoadingLogout } = useLogin();
 
   if (isLoading) return <Loader text="CARGANDO..." />;
 
-  return isLogin ? <UserLogged /> : <UserGuest />;
+  return isLogin ? (
+    <UserLogged logout={logout} isLoadingLogout={isLoadingLogout} />
+  ) : (
+    <UserGuest />
+  );
 }

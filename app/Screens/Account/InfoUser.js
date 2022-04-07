@@ -1,43 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 /* DEPENDENCIES */
 import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
 import { Avatar } from "react-native-elements";
-import { getAuth, updateProfile } from "firebase/auth";
 import color from "../../styles/color";
 /* COMPONENTS */
 import AvatarDefault from "../../../assets/avatar-default.jpg";
 /* HOOKS */
 import useMediaLibrary from "../../Hooks/useMediaLibrary";
-import useFirebaseStorage from "../../Hooks/useFirebaseStorage";
 
-export default function InfoUser() {
+export default function InfoUser({
+  uploadImage,
+  updateAvatar,
+  isLoadAvatar,
+  currentUser,
+}) {
   const { handleImage, uri } = useMediaLibrary();
-  const { uploadImage, isLoadAvatar } = useFirebaseStorage();
-
-  const { currentUser } = getAuth();
-  const { email, photoURL, displayName, uid } = currentUser;
+  const { email, photoURL, displayName } = currentUser;
 
   useEffect(() => {
-    if (uri) {
-      console.log("CARGANDO");
-      showAvatar({ uri, uid, folder: "avatar" });
-    }
+    if (uri) showAvatar({ uri, folder: "avatar" });
   }, [uri]);
 
-  const showAvatar = async ({ uri, uid, folder }) => {
-    const newUrlImagen = await uploadImage({ uri, uid, folder });
-    console.log({ newUrlImagen });
-    if (newUrlImagen) {
-      updateProfile(currentUser, {
-        photoURL: newUrlImagen,
-      })
-        .then(() => {
-          console.log("Perfil Actualizado");
-        })
-        .catch((error) => {
-          console.log("fallo al actualziar");
-        });
-    }
+  const showAvatar = async ({ uri, folder }) => {
+    const newUrlImagen = await uploadImage({ uri, folder });
+    if (newUrlImagen) updateAvatar(newUrlImagen);
   };
 
   return (
@@ -46,14 +32,14 @@ export default function InfoUser() {
         <ActivityIndicator
           animating={true}
           size="large"
-          style={{ opacity: 1 }}
+          style={styles.spinner}
           color="#999999"
         />
       ) : (
         <Avatar
           size="large"
           rounded
-          source={{ uri: photoURL }}
+          source={photoURL ? { uri: photoURL } : AvatarDefault}
           containerStyle={[styles.userInfoAvatar, styles.btnAvatarShadow]}
         >
           <Avatar.Accessory
@@ -95,5 +81,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     elevation: 4,
+  },
+  spinner: {
+    opacity: 1,
+    marginHorizontal: 30,
+    marginVertical: 20,
   },
 });
