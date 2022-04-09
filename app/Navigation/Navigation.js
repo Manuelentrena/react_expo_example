@@ -5,7 +5,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { routes } from "./routes";
 import { Suspense } from "react";
 import Loader from "../components/Loader/Loader";
-import TabButton from "./TabButton";
 /* STYLES */
 import { styles } from "./NavigationStyles";
 
@@ -20,6 +19,7 @@ export default function Navigation() {
           screenOptions={{
             tabBarStyle: styles.navigator,
             headerShown: false,
+            tabBarHideOnKeyboard: true,
           }}
         >
           {routes.map(({ name, Component, options }) => (
