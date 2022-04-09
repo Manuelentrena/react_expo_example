@@ -1,13 +1,13 @@
-import Navigation from "./app/Navigation/Navigation";
 import { useFonts } from "expo-font";
-import { firebaseApp } from "./app/constant/firebase";
 import { LogBox } from "react-native";
+import Navigation from "./app/Navigation/Navigation";
 /* import AppLoading from 'expo-app-loading'; */
 
 LogBox.ignoreLogs(["AsyncStorage has been extracted"]);
 LogBox.ignoreAllLogs();
 
 export default function App() {
+  console.log("flipado");
   const [loaded] = useFonts({
     "Montserrat-Black": require("./assets/fonts/Montserrat/Montserrat-Black.ttf"),
   });
